@@ -13,14 +13,42 @@ permissions:
   contents: read
   
 jobs:
+  npd-tokenize:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Inject Variables
+      id: tokenization
+      uses: lindluni/actions-variable-groups@v2
+      with:
+        file: test-tokenized-manifest.yaml
+        vars: |
+          PRINCIPAL=test-principal
+          REPLICATION_FACTOR=test-repl-factor
+
+    - name: Replace Tokens
+      uses: joshjohanning/replace-tokens@v1.4
+      with:
+        tokenPrefix: '{{'
+        tokenSuffix: '}}'
+        files: '["**/*-tokenized-manifest.yaml"]'
+
+    - name: Override original manifest file
+      run: |
+        rm test-manifest.yaml
+        mv test-tokenized-manifest.yaml test-manifest.yaml     
+      
+
   deploy-npd:
     name: npd
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
     with:
-      manifestPath: test-manifest.yaml
+      manifestPath: ${{ steps.tokenization.outputs.file }}
       environment: npd
     secrets: inherit
-    env: 
-      test_principal: "testarn-qhsst"
-      test_replicationFactor: "test454"    
+
+    
   

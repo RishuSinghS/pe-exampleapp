@@ -7,5 +7,5 @@ spec:
   kafka-topic:
     - name: topic1
       suffix: t-240223-demo
-      principal: test-principal
-      replicationFactor: test-repl-factor
+      principal: {{ PRINCIPAL }}
+      replicationFactor: {{ REPLICATION_FACTOR }}

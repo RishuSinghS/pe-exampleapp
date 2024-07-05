@@ -14,6 +14,7 @@ permissions:
   
 jobs:
   npd-tokenize:
+    id: tokenize
     runs-on: ubuntu-latest
     
     steps:
@@ -44,9 +45,10 @@ jobs:
 
   deploy-npd:
     name: npd
+    needs: npd-tokenize
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
     with:
-      manifestPath: ${{ steps.tokenization.outputs.file }}
+      manifestPath: ${{ job.tokenization.outputs.file }}
       environment: npd
     secrets: inherit
 

@@ -14,6 +14,7 @@ permissions:
   
 jobs:
   npd-tokenize:
+    name: npd-tokenize
     id: tokenize
     runs-on: ubuntu-latest
     

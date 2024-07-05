@@ -46,7 +46,6 @@ jobs:
 
   deploy-npd:
     name: npd
-    needs: npd-tokenize
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
     with:
       manifestPath: test-manifest.yaml

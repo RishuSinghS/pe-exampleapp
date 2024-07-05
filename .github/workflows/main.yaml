@@ -49,7 +49,7 @@ jobs:
     needs: npd-tokenize
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
     with:
-      manifestPath: ${{ needs.npd-tokenize.outputs.manifestPath }}
+      manifestPath: ${{ needs.npd-tokenize.outputs.file }}
       environment: npd
     secrets: inherit
 

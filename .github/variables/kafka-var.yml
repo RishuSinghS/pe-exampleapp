@@ -1,0 +1,5 @@
+variables:
+- key: PRINCIPAL
+  value: test_principal
+- key: REPLICATION_FACTOR
+  value: test_replication_factor

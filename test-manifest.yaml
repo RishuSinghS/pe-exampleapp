@@ -1,0 +1,11 @@
+apiVersion: abc.com/v1alpha1
+kind: PEManifest
+metadata:
+  name: demo-kafka1
+  namespace: default
+spec:
+  kafka-topic:
+    - name: topic1
+      suffix: t-240223-demo
+      principal: {{ env.test_principal }}
+      replicationFactor: {{ env.test_replicationFactor }}

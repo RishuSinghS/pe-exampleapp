@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ "main" ] 
+  pull_request:
+    branches: [ "main" ]
+    
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+  contents: read
+  
+jobs:
+  deploy-npd:
+    name: npd
+    uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
+    with:
+      manifestPath: test-manifest.yaml
+      environment: npd
+    secrets: inherit
+    env: 
+      test_principal: "testarn-qhsst"
+      test_replicationFactor: "test454"    
+  

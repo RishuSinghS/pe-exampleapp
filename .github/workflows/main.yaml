@@ -20,7 +20,6 @@ env:
 jobs:
   deploy-npd:
     name: npd
-    needs: set-env
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
     with:
       manifestPath: test-manifest.yaml

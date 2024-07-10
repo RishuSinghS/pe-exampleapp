@@ -15,6 +15,7 @@ permissions:
 jobs:
   set-env:
     name: Set Environment Variables
+    uses: joshjohanning/replace-tokens@v1.4
     runs-on: ubuntu-latest
     env:
       APIURL: ${{ vars.APIURL }}

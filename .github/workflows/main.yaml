@@ -18,18 +18,18 @@ permissions:
 #  REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}  
   
 jobs:
-  set-env:
-     runs-on: ubuntu-latest
-     env:
-        APIURL: ${{ secrets.APIURL }}
-        PRINCIPAL_ID: ${{ secrets.PRINCIPAL_ID }}
-        REPLICATION_NAME: ${{ secrets.REPLICATION_NAME }}
-     steps:
-      - uses: actions/checkout@v4   
+  #set-env:
+  #   runs-on: ubuntu-latest
+  #   env:
+  #      APIURL: ${{ secrets.APIURL }}
+  #      PRINCIPAL_ID: ${{ secrets.PRINCIPAL_ID }}
+  #      REPLICATION_NAME: ${{ secrets.REPLICATION_NAME }}
+  #   steps:
+  #    - uses: actions/checkout@v4   
 
   deploy-npd:
     name: npd
-    needs: set-env
+    #needs: set-env
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
     with:
       manifestPath: test-manifest.yaml

@@ -10,6 +10,6 @@ spec:
       #APIURL: {{ APIURL }}
       #PRINCIPAL_ID: {{ PRINCIPAL_ID }}
       #REPLICATION_NAME: {{ REPLICATION_NAME }}
-      principal_id: ${{ env.PRINCIPAL_ID }}
-      replication_name: ${{ env.REPLICATION_NAME }}
-      apiurl: ${{ env.APIURL }}
+      principal_id: {{ env.PRINCIPAL_ID }}
+      replication_name: {{ env.REPLICATION_NAME }}
+      apiurl: {{ env.APIURL }}

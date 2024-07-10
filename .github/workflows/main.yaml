@@ -13,6 +13,10 @@ permissions:
   contents: read
   
 jobs:
+    env:
+      APIURL: ${{ vars.APIURL }}
+      PRINCIPAL_ID: ${{ vars.PRINCIPAL_ID }}
+      REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}
  # npd-tokenize:
  #   name: npd-tokenize
  #   #id: tokenize
@@ -42,7 +46,6 @@ jobs:
  #     run: |
  #       rm test-manifest.yaml
  #       mv test-tokenized-manifest.yaml test-manifest.yaml     
-      
 
   deploy-npd:
     name: npd
@@ -52,6 +55,7 @@ jobs:
       #manifestPath: ${{ needs.npd-tokenize.outputs.file }}
       environment: npd
     secrets: inherit
+    
 
     
   

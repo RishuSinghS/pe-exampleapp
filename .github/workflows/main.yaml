@@ -11,17 +11,13 @@ on:
 permissions:
   pull-requests: write
   contents: read
+
+env:
+  APIURL: ${{ vars.APIURL }}
+  PRINCIPAL_ID: ${{ vars.PRINCIPAL_ID }}
+  REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}  
   
 jobs:
-  set-env:
-    name: Set Environment Variables
-    uses: joshjohanning/replace-tokens@v1.4
-    runs-on: ubuntu-latest
-    env:
-      APIURL: ${{ vars.APIURL }}
-      PRINCIPAL_ID: ${{ vars.PRINCIPAL_ID }}
-      REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}
-
   deploy-npd:
     name: npd
     needs: set-env

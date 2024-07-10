@@ -31,6 +31,10 @@ jobs:
     name: npd
     needs: set-env
     uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
+    env:
+      APIURL: ${{ env.APIURL }}
+      PRINCIPAL_ID: ${{ env.PRINCIPAL_ID }}
+      REPLICATION_NAME: ${{ env.REPLICATION_NAME }}
     with:
       manifestPath: test-manifest.yaml
       environment: npd

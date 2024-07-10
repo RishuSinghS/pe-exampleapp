@@ -24,6 +24,8 @@ jobs:
         APIURL: ${{ secrets.APIURL }}
         PRINCIPAL_ID: ${{ secrets.PRINCIPAL_ID }}
         REPLICATION_NAME: ${{ secrets.REPLICATION_NAME }}
+     steps:
+      - uses: actions/checkout@v4   
 
   deploy-npd:
     name: npd

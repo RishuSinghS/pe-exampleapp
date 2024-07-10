@@ -12,10 +12,10 @@ permissions:
   pull-requests: write
   contents: read
 
-env:
-  APIURL: ${{ vars.APIURL }}
-  PRINCIPAL_ID: ${{ vars.PRINCIPAL_ID }}
-  REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}  
+#env:
+#  APIURL: ${{ vars.APIURL }}
+#  PRINCIPAL_ID: ${{ vars.PRINCIPAL_ID }}
+#  REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}  
   
 jobs:
   deploy-npd:

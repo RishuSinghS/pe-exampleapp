@@ -7,6 +7,6 @@ spec:
   kafka-topic:
     - name: topic1
       suffix: t-240223-demo
-      principal_id: {{ env.PRINCIPAL_ID }}
-      replication_name: {{ env.REPLICATION_NAME }}
-      apiurl: {{ env.APIURL }}
+      principal_id: {{ PRINCIPAL_ID }}
+      replication_name: {{ REPLICATION_NAME }}
+      apiurl: {{ APIURL }}

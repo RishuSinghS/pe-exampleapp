@@ -28,17 +28,15 @@ jobs:
           env | grep -v '::' > $GITHUB_WORKSPACE/env_file.txt
 
   deploy-npd:
-    needs: set-env
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy using manifest and environment variables
-        uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
-        with:
-          manifestPath: test-manifest.yaml
-          environment: npd
-          env_file: $GITHUB_WORKSPACE/env_file.txt
-        secrets: inherit
-    
+      name: npd
+      needs: set-env
+      uses: AnoopHegde/pe-actions-deploy/.github/workflows/template-deploy-pe.yaml@main
+      with:
+        manifestPath: test-manifest.yaml
+        environment: npd
+        env_file: $GITHUB_WORKSPACE/env_file.txt
+      secrets: inherit
+      
 
     
   

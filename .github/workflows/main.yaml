@@ -22,9 +22,9 @@ jobs:
     name: Set Environment Variables
     runs-on: ubuntu-latest
     env:
-      APIURL: ${{ vars.APIURL }}
-      PRINCIPAL_ID: ${{ vars.PRINCIPAL_ID }}
-      REPLICATION_NAME: ${{ vars.REPLICATION_NAME }}
+      APIURL: https://api.example.com
+      PRINCIPAL_ID: a378-c59f28847958-609f-4bd4-e203aa13
+      REPLICATION_NAME: test-replication
     steps:
     - name: Set Environment Variables
       run: echo "APIURL=${APIURL}" >> $GITHUB_ENV && echo "PRINCIPAL_ID=${PRINCIPAL_ID}" >> $GITHUB_ENV && echo "REPLICATION_NAME=${REPLICATION_NAME}" >> $GITHUB_ENV
